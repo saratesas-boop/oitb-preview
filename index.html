@@ -26,6 +26,10 @@
       --line:  rgba(147,172,192,.18);
       --display: "Fraunces", Georgia, "Times New Roman", serif;
       --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      /* layout: centered content width + responsive side gutter (more room on phone, slimmer on wide screens) */
+      --maxw: 1240px;
+      --pad-x: clamp(1.75rem, 5vw, 4rem);
+      --gutter: max(var(--pad-x), (100% - var(--maxw)) / 2);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,7 +45,7 @@
     }
     a { color: inherit; text-decoration: none; }
     img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    section { padding: clamp(4rem, 9vw, 8.5rem) clamp(1.25rem, 6vw, 6rem); }
+    section { padding: clamp(4.5rem, 9vw, 9rem) var(--gutter); }
 
     .eyebrow {
       font-size: .72rem; letter-spacing: .32em; text-transform: uppercase;
@@ -58,7 +62,7 @@
     header {
       position: fixed; inset: 0 0 auto 0; z-index: 50;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem clamp(1.25rem, 6vw, 6rem);
+      padding: 1.2rem var(--gutter);
       transition: background .4s ease, padding .4s ease, backdrop-filter .4s ease;
     }
     header.scrolled {
@@ -86,7 +90,7 @@
         flex-direction: column; gap: 0;
         background: rgba(3,16,27,.97); backdrop-filter: blur(14px);
         border-bottom: 1px solid var(--line);
-        padding: .25rem clamp(1.25rem,6vw,6rem) 1rem;
+        padding: .25rem var(--gutter) 1rem;
         display: none;
       }
       header.nav-open { background: rgba(3,16,27,.97); backdrop-filter: blur(14px); }
@@ -98,7 +102,7 @@
     .hero {
       position: relative; height: 100svh; min-height: 600px;
       display: flex; flex-direction: column; justify-content: center;
-      padding: 0 clamp(1.25rem, 6vw, 6rem);
+      padding: 0 var(--gutter);
       overflow: hidden;
     }
     /* Swap this gradient block for James's looping showreel:
@@ -165,7 +169,7 @@
     /* ---------- WORK GRID ---------- */
     .work-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.4rem; }
     .grid {
-      display: grid; gap: .7rem;
+      display: grid; gap: .85rem;
       grid-template-columns: repeat(4, 1fr);
       grid-auto-rows: 14vw;
     }
@@ -242,7 +246,7 @@
     .shop-card p { margin-top:.7rem; font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; color: var(--muted); }
 
     /* ---------- FOOTER ---------- */
-    footer { border-top: 1px solid var(--line); padding: 3.2rem clamp(1.25rem,6vw,6rem); }
+    footer { border-top: 1px solid var(--line); padding: 3.4rem var(--gutter); }
     .foot-row { display:flex; justify-content: space-between; gap:2rem; flex-wrap: wrap; align-items:center; }
     .foot-row a.ig { color: var(--muted); font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; }
     .foot-row a.ig:hover { color: var(--orange); }
