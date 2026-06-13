@@ -158,14 +158,6 @@
     }
     .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
     .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
-    .scroll-cue {
-      position: absolute; bottom: 1.6rem; left: 50%; transform: translateX(-50%);
-      z-index: 2; font-size: .68rem; letter-spacing: .25em; text-transform: uppercase;
-      color: var(--muted); display: flex; flex-direction: column; align-items: center; gap: .5rem;
-    }
-    .scroll-cue span { width: 1px; height: 34px; background: linear-gradient(var(--orange), transparent); animation: pulse 2.4s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{ opacity:.3; } 50%{ opacity:1; } }
-
     /* ---------- WORK GRID ---------- */
     .work-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.4rem; }
     .grid {
@@ -267,7 +259,7 @@
 <body>
 
   <header id="site-header">
-    <a class="wordmark" href="#top">Orange <b>in the</b> Blue</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
     <nav class="links">
       <a href="#gallery">Gallery</a>
       <a href="#films">Films</a>
@@ -275,7 +267,7 @@
       <a href="#shop">Shop</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <a class="wordmark" href="#top">Orange <b>in the</b> Blue</a>
   </header>
 
   <!-- ===== HERO ===== -->
@@ -289,7 +281,6 @@
         <a class="btn btn-ghost" href="#shop">Shop Prints</a>
       </div>
     </div>
-    <div class="scroll-cue">Scroll<span></span></div>
   </section>
 
   <!-- ===== GALLERY ===== -->
