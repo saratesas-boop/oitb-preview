@@ -133,8 +133,15 @@
       transition: transform .2s ease, background .25s ease, color .25s ease;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--orange); color: #1a0c00; font-weight: 500; }
-    .btn-primary:hover { background: var(--orange-soft); }
+    .btn-primary {
+      background: var(--orange); /* fallback */
+      background: linear-gradient(180deg, rgb(var(--accent-rgb)), color-mix(in srgb, rgb(var(--accent-rgb)) 72%, #000));
+      color: #1a0c00; font-weight: 500;
+    }
+    .btn-primary:hover {
+      background: var(--orange-soft); /* fallback */
+      background: linear-gradient(180deg, rgb(var(--accent-soft-rgb)), rgb(var(--accent-rgb)));
+    }
     .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
     .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
     .scroll-cue {
